@@ -1,8 +1,8 @@
 import { render, screen } from '@testing-library/react';
 import App from './App';
 
-test('renders learn react link', () => {
+// jsdom has no WebGL, so the app shows its plain fallback.
+test('shows the fallback when WebGL is unavailable', () => {
   render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+  expect(screen.getByRole('heading', { name: /Bonifasius Baron Betazara/i })).toBeInTheDocument();
 });
